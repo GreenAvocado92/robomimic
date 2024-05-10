@@ -180,10 +180,14 @@ def load_dict_from_checkpoint(ckpt_path):
         ckpt_dict (dict): Loaded checkpoint dictionary.
     """
     ckpt_path = os.path.expanduser(ckpt_path)
-    if not torch.cuda.is_available():
-        ckpt_dict = torch.load(ckpt_path, map_location=lambda storage, loc: storage)
-    else:
-        ckpt_dict = torch.load(ckpt_path)
+    dev_num = torch.cuda.device_count()
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    ckpt_dict = torch.load(ckpt_path, map_location=device)
+
+    # if not torch.cuda.is_available():
+        # ckpt_dict = torch.load(ckpt_path, map_location=lambda storage, loc: storage)
+    # else:
+        # ckpt_dict = torch.load(ckpt_path)
     return ckpt_dict
 
 
