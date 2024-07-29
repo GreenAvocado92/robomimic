@@ -128,9 +128,7 @@ python dataset_states_to_obs.py --done_mode 2 \
 --dataset $BASE_DATASET_DIR/transport/mh/demo_v141.hdf5 \
 --output_name image_v141.hdf5 --camera_names shouldercamera0 shouldercamera1 robot0_eye_in_hand robot1_eye_in_hand --camera_height 84 --camera_width 84
 
-
 ### can-paired ###
-
 
 python dataset_states_to_obs.py --done_mode 2 \
 --dataset $BASE_DATASET_DIR/can/paired/demo_v141.hdf5 \

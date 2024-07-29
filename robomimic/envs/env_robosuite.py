@@ -166,6 +166,8 @@ class EnvRobosuite(EB.EnvBase):
             self.env.sim.forward()
             should_ret = True
 
+        # import ipdb; ipdb.set_trace()
+
         if "goal" in state:
             self.set_goal(**state["goal"])
         if should_ret:
